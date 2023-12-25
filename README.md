@@ -3,8 +3,8 @@ AWS CLOUD PROJECT BOOTCAMP
 Tasks
 
 - [x] Certification
-- [] HTML
-- [] CSS
+- [x] HTML
+- [x] CSS
 - [] Static S3 Website: Using terraform, create S3 bucket for hosting
 - [] HTTPS : Using terraform, create Cloudfront distribution to enable security
 - [] DNS : Point a custom DNS domain name to the CloudFront distribution
@@ -17,3 +17,5 @@ Tasks
 - [] Blogpost : Publish a blogpost on the challenge
 
 
+Commands
+terraform init -backend-config=backend.hcl
