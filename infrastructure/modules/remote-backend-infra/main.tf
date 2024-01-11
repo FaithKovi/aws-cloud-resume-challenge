@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
 terraform {
   backend "s3" {
     key = "terraform-state/terraform.tfstate"
@@ -9,11 +5,11 @@ terraform {
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "terraformstate-acrc112"
+  bucket = var.remote_state_bucket_name
 
   # prevent accidental deletion of the bucket
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 
@@ -43,7 +39,7 @@ resource "aws_s3_bucket_public_access_block" "public_access" {
 }
 
 resource "aws_dynamodb_table" "terraform_locks" {
-  name         = "terraformstate-table-acrc112"
+  name         = var.aws_dynamodb_table_name
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
   attribute {

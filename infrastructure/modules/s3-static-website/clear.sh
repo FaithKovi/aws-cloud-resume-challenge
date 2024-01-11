@@ -19,6 +19,6 @@ bucket.object_versions.all().delete()
 
 
 
-aws s3 rm s3://acrc-static-website112/ --recursive
+# aws s3 rm s3://acrc-static-website112/ --recursive
 
 
